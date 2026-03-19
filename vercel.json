@@ -1,22 +1,33 @@
 {
   "version": 2,
-  "public": true,
-  "functions": {
-    "api/*.js": { "maxDuration": 30 }
-  },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/app", "destination": "/APP.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "headers": [
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
-      ]
+      "src": "/api/anthropic",
+      "dest": "/api/anthropic.js"
+    },
+    {
+      "src": "/api/pesapal(.*)",
+      "dest": "/api/pesapal.js"
+    },
+    {
+      "src": "/api/ipn(.*)",
+      "dest": "/api/ipn.js"
+    },
+    {
+      "src": "/api/order-status(.*)",
+      "dest": "/api/order-status.js"
+    },
+    {
+      "src": "/api/send-magic",
+      "dest": "/api/send-magic.js"
+    },
+    {
+      "src": "/api/verify-magic(.*)",
+      "dest": "/api/verify-magic.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/serve.js"
     }
   ]
 }
