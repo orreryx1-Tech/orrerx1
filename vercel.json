@@ -4,14 +4,10 @@
   "functions": {
     "api/*.js": { "maxDuration": 30 }
   },
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/app", "dest": "/app.html" },
-    { "src": "/app.html", "dest": "/app.html" },
-    { "src": "/login", "dest": "/login.html" },
-    { "src": "/success", "dest": "/success.html" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/app", "destination": "/APP.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
